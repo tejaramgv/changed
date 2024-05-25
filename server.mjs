@@ -5,7 +5,7 @@ import cors from 'cors'
 const app=express();
 
 //  const corsOptions = {
-//      origin: 'https://newvaaj.onrender.com',
+//      origin: 'https://changed.onrender.com',
 //      optionsSuccessStatus: 200,
 //    };
   

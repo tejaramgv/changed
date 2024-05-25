@@ -93,19 +93,27 @@ res.status(201).send({
 
 
 export const contactController=(req, res) => {
-  const {name,email,phoneno,feedback } = req.body;
+  const {name,email,phoneno,feedback,category } = req.body;
 
   if (!email) {
     return res.status(400).json({ success: false, message: 'Email is required' });
   }
+  let mails;
+  if(category==="SERVICES" || category==="CAREERS" || category==="BUSINESS"){
+    mails=['feedback@vaajlabs.com','careers@vaajlabs.com','careers.vaajlabs@gmail.com']
+
+  }
+  else{
+    mails="services@vaajlabs.com"
+    }
 
   
 
   const mailOptions = {
     from: email,
-    to: 'feedback@vaajlabs.com',
+    to: mails,
     subject:'Feedback!',
-    text:`From:Name:${name}\n${email}\nphone No: ${phoneno}\n\nMessage: ${feedback}\n\n\nThank You for contacing us.we will reach you out shortly`
+    text:`From:${email}\nName:${name}\nphone No: ${phoneno}\nEnquiry Type: ${category}\nMessage: ${feedback}\n\nThank You for contacing us.we will reach you out shortly`
   };
 
   transporter.sendMail(mailOptions, (error, info) => {

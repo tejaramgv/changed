@@ -16,8 +16,8 @@ const About=()=>{
 <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="200">
   
-          <div className="d-flex justify-content-between align-items-center">
-            <h2>About Us ~</h2>
+          <div className="d-flex justify-content-center align-items-center">
+            <h2>About Us</h2>
            
           </div>
   
@@ -82,7 +82,7 @@ Digital Marketing and Other Services</p>
 
     </section>
 
-
+{/* 
     <section id="team"  className={`team section ${!state?"home-sectionothers":"home-sectionothers-toggle"}`} >
 
 
@@ -167,7 +167,7 @@ Digital Marketing and Other Services</p>
 
 </div>
 
-</section>
+</section> */}
 
 </>
     )

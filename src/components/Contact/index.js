@@ -1,6 +1,9 @@
 import {useState,useContext} from 'react'
 import { FaMapMarkerAlt,FaEnvelope } from 'react-icons/fa';
+import { Container, Typography, Grid, TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha';
+import PhoneInput from 'react-phone-input-2';
+import 'react-phone-input-2/lib/style.css';
 import { AiOutlineMail } from 'react-icons/ai';
 import { FaLinkedin } from 'react-icons/fa';
 import { FaInstagram } from 'react-icons/fa';
@@ -39,19 +42,26 @@ const Contact=()=>{
 
       setIsValidEmail(emailRegex.test(email));}
     }
-    const [isValidPhoneNumber, setIsValidPhoneNumber] = useState(true);
+    const [category, setCategory] = useState("");
 
-    const pHone = (e) => {
-      const input = e.target.value.replace(/\D/g, '');
-      if (input.length <= 10) {
-        setPhone(input);
-        setIsValidPhoneNumber(true);
-      } else {
-        setIsValidPhoneNumber(false);
-      }
-    };
+    const handleCategoryChange = (e) => {
+      setCategory(e.target.value);
+    }
+    const [isValidphone, setIsValidPhone] = useState(null);
+
     const fEed=(e)=>setFeedback(e.target.value)
 
+    const phone=(value,country)=>{
+      if(value.length!=country.dialCode.length+10){
+  setIsValidPhone(false)
+      }
+      else{
+          setIsValidPhone(true)
+  setPhone(value)
+  
+  }
+  }
+ 
     const handleSubmit=async()=>{
         if(name.length<3){
          toast.error('name is too short!');
@@ -65,8 +75,16 @@ const Contact=()=>{
          toast.error('Enter valid mail');
          return;
         }
-        if(phoneno.length<10 || phoneno.length>10){
+        if(category===""){
+          toast.error('Please Select Enquiry Type!');
+          return;
+         }
+        if(isValidphone===null){
          toast.error('Enter valid mobile number');
+         return;
+        }
+        if(isValidphone===false){
+          toast.error('Enter valid mobile number');
          return;
         }
         if(!feedback){
@@ -83,7 +101,7 @@ const Contact=()=>{
         setPhone("")
         setFeedback("")
         try {
-         const res = await axios.post(`http://localhost:8081/api/v1/auth/contact`, { name, email,phoneno,feedback });
+         const res = await axios.post(`http://localhost:8081/api/v1/auth/contact`, { name, email,phoneno,feedback,category });
          console.log(res);
    
          if (res.data.success) {
@@ -112,8 +130,8 @@ const Contact=()=>{
        <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="200">
   
-          <div className="d-flex justify-content-between align-items-center">
-            <h2>Contact US --</h2>
+          <div className="d-flex justify-content-center align-items-center">
+            <h2>Contact</h2>
            
           </div>
   
@@ -168,7 +186,7 @@ const Contact=()=>{
                   </div>
                 </div>
                 <div className="form-group mt-3">
-                <input
+                {/* <input
         type="text"
         className='form-control'
         id="phone"
@@ -177,12 +195,39 @@ const Contact=()=>{
         onChange={pHone}
         maxLength={10} // Limit input to 10 characters
         style={{ borderColor: isValidPhoneNumber ? 'initial' : 'red' }}
-      />
+      /> */}
+           <FormControl fullWidth>
+           <label className="p-1">Select Enquiry Type</label>
+      <Select
+        fullWidth
+        required
+        value={category}
+        onChange={handleCategoryChange}
+      >
+        <MenuItem value="SERVICES">Services</MenuItem>
+        <MenuItem value="CAREERS">Careers</MenuItem>
+        <MenuItem value="BUSINESS">Business</MenuItem>
+        <MenuItem value=",MEDIA ENQUIRY">Media Enquiry</MenuItem>
+        <MenuItem value="PARTNERSHIP">Partnership</MenuItem>
+        <MenuItem value="GET A QUOTE">Get a Quote</MenuItem>
+        <MenuItem value="OTHER QUERIES">Other Queries</MenuItem>
+
+      </Select>
+    </FormControl>
+      <label className="p-1">Mobile Number</label>
+                  <PhoneInput fullWidth
+            //  inputComponent={"Mobile No"} 
+              country={'in'} // Default country
+              value={phoneno}
+            required
+              onChange={phone}
+            />
+          {isValidphone===false && <span className="validemail" style={{ color: 'red' }}>Please enter a valid mobile number.</span>}
                 </div>
+            
                 <div className="form-group mt-3">
                   <textarea className="form-control" value={feedback} onChange={fEed}  name="message" rows="5" placeholder="Message" required></textarea>
                 </div>
-              
                
                 <ReCAPTCHA style={{marginTop:"1%"}}
           sitekey="6Lcewa4pAAAAAAU17wtRvHROv0COVcLCFircmr4z"

@@ -46,7 +46,7 @@ const Apply = (props) => {
      <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container">
   
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex justify-content-center align-items-center">
             <h4 style={{color:"white"}}>Application Form</h4>
            
           </div>

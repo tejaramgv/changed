@@ -40,7 +40,7 @@ const sendotp=async()=>{
     setOtp(generatedotp)
     try{
     
-        const res = await axios.post(`https://newvaaj.onrender.com/api/v1/auth/send-otp`, { generatedotp,mail });
+        const res = await axios.post(`https://changed.onrender.com/api/v1/auth/send-otp`, { generatedotp,mail });
         console.log(res)
         if(res.data.success){
             toast.success(`OTP sent to ${mail}` )
@@ -69,7 +69,7 @@ const handleSubmit = async() => {
   setOTP(["","","",""])
     if (gotp === parseInt(enteredOtp)) {
       try{
-      const response=await axios.post('https://newvaaj.onrender.com/api/v1/auth/applied',{mail,job})
+      const response=await axios.post('https://changed.onrender.com/api/v1/auth/applied',{mail,job})
      
       if(!response.data.success){
         onNext({"Email":mail})

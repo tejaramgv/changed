@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars,faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import {FaHome,FaLaptopCode,FaCode,FaBars,FaTools,FaLightbulb,FaBug,FaReact } from 'react-icons/fa';
-import {FaChartPie,FaPhoneAlt,FaInfoCircle,FaBell, FaChartBar, FaHeart, FaWallet, FaSignOutAlt, FaMoon, FaSun, FaSearch } from 'react-icons/fa';
+import {FaChartPie,FaTimes,FaPhoneAlt,FaInfoCircle,FaBell, FaChartBar, FaHeart, FaWallet, FaSignOutAlt, FaMoon, FaSun, FaSearch } from 'react-icons/fa';
 import CountUp from 'react-countup';
  // Import icons from react-icons
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
@@ -33,6 +33,7 @@ import '../../App.css'
 const Home=()=>
     {
         const [state, setState] = useContext(AppContext);
+      
     const settings = {
         dots: true,
         infinite: true,
@@ -263,7 +264,7 @@ const Home=()=>
           <div className="tag"><span>#</span>IT Consulting</div>
           <div className="tag"><span>#</span> Product Development</div>
           <div className="tag"><span>#</span>Software Testing Services</div>
-          <div className="tag"><span>#</span>Web Development</div>
+      
         </div>
       </div>
       <div className="loop-slider" style={{ "--duration": "15936ms", "--direction": "normal" }}>
@@ -271,7 +272,6 @@ const Home=()=>
           <div className="tag"><span>#</span>IT Consulting</div>
           <div className="tag"><span>#</span>Product Development</div>
           <div className="tag"><span>#</span>Software Testing Services </div>
-          <div className="tag"><span>#</span>Web Development</div>
           <div className="tag"><span>#</span> App Development</div>
           <div className="tag"><span>#</span>Cyber Defense</div>
         </div>
@@ -281,9 +281,9 @@ const Home=()=>
     <div className="logo-container">
     <img className="mobile-logo" src="./img/logo.png" alt=""/>
   </div>
-  <div  style={{marginTop:"-20px",background:"rgba(0, 0, 0, 0.75)",borderRadius:"20px 20px 0 0"}}><h4 style={{color:"white",padding:"10px",fontFamily:"sans-serif",fontStyle:"-moz-initial"}}>Providing technical needs to customers-Application Development& Cyber Security Solutions</h4>
+  <div  style={{marginTop:"-20px",background:"rgba(0, 0, 0, 0.75)",borderRadius:"20px 20px 0 0"}}><h4 style={{color:"white",padding:"10px",fontFamily:"sans-serif",fontStyle:"-moz-initial"}}>Providing technical needs to customers-Application Development & Cyber Security Solutions</h4>
   </div></div>
-  <div className="logo-container">
+  <div className="logo-container1">
     <img className="logo" src="./img/logo.png" alt=""/>
   </div>
   </div>
@@ -296,7 +296,7 @@ const Home=()=>
                <h2 style={{fontWeight:"bolder",color:"#06334a"}}>Services</h2>
               
               </div>
-              <div className="row">
+              <div className="row justify-content-center">
   
               <div className="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up">
               <div className="icon-box icon-box-pink">
@@ -318,7 +318,7 @@ const Home=()=>
               <div className="icon-box icon-box-green">
                 <div className="icon"> <FaTools size={30} color="green" /></div>
                 <h4 className="title" style={{color:"green",fontWeight:"bolder"}}>IT Consulting</h4>
-                <p className="description">In business and engineering, new product development covers the complete process of bringing a new product to market., renewing an existing product or introducing a product in a new market.</p>
+                <p className="description">Our comprehensive IT consulting services encompass strategic planning, system integration, and innovative solutions to drive your business forward.</p>
               </div>
             </div>
            
@@ -337,13 +337,13 @@ const Home=()=>
                 <p className="description">In our company, software testing services are an integral part of our development process, ensuring that our software products meet the highest standards of quality and reliability.</p>
               </div>
             </div>
-            <div className="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            {/* <div className="col-md-6 col-lg-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
               <div className="icon-box icon-box-blue">
                 <div className="icon"><FaReact size={30} color="#61DAFB" /></div>
                 <h4 className="title" style={{color:"skyblue",fontWeight:"bolder"}}>Web Development Activites</h4>
                 <p className="description">Web development encompasses various tasks such as planning, design, front-end and back-end development, database management, testing, deployment, and maintenance.</p>
               </div>
-            </div> 
+            </div>  */}
               </div>
             </div>
           </section>
@@ -354,7 +354,7 @@ const Home=()=>
   
           <div className="row">
             <div className="col-lg-6" data-aos="fadeup"  data-aos-delay="100">
-              <img src="./img/about.jpg" class="img-fluid" alt=""/>
+              <img src="./img/homeabout.jpg" class="img-fluid" alt=""/>
             </div>
             <div className="col-lg-6 pt-4 pt-lg-0" data-aos="fadeup"  data-aos-delay="100">
               <h3 style={{background:"#e6fdfc",padding:"10px",color:"#034d72"}}>VAAJLABS Leading Digital Transformation with Cutting-Edge Technology.</h3>
@@ -372,15 +372,15 @@ const Home=()=>
   
                
               </ul>
-              <p>
+              {/* <p>
               Behind Vaaj Labs is a talented team of developers, designers, and digital strategists passionate about technology and driven by results. 
-              </p>
+              </p> */}
             </div>
           </div>
   
         </div>
       </section>
-      <section className={`facts section-bg ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
+      {/* <section className={`facts section-bg ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container">
           <div className="row counters" data-aos="fadeup"  data-aos-delay="100">
             <div className="col-lg-3 col-6 text-center">
@@ -401,7 +401,7 @@ const Home=()=>
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
   
       {/* <section className={`testimonials ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container" data-aos="fade">
@@ -445,20 +445,20 @@ const Home=()=>
       </section> */}
         
         </main>
-        <div style={{background:"#F1E4E0"}} className={`${!state?"home-sectionothers":"home-sectionothers-toggle"}`}> 
+        <div style={{background:"#F1E4E0",paddingBottom:"2%"}} className={`${!state?"home-sectionothers":"home-sectionothers-toggle"}`}> 
         <div className='container' data-aos="fadeup" data-aos-delay="200" >
         <div className="section-title">
                <h2 className="p-4" style={{fontWeight:"bolder",color:"#06334a"}}>Our Valued Clients</h2>
               
               </div>
           <div className="row justify-content-around">
-            <div className="col-5 col-md-5 col-xl-5 my-2" >
+            <div className="col-3 col-md-3 col-xl-3 my-2" >
               <img src="./mines.png" alt='' className="img-fluid"/>
             </div>
-            <div className="col-5 col-md-5 col-xl-5 my-2">
+            <div className="col-3 col-md-3 col-xl-3 my-2">
               <img src="./defence.png" alt=""  className="img-fluid"/>
             </div>
-            <div  className="col-12 col-md-12 col-xl-12 my-2">
+            <div  className="col-3 col-md-3 col-xl-3 my-2">
              <center><img  src="./venkat.png" alt=""  className="img-fluid"/>
           </center>  </div>
           </div>

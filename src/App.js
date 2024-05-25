@@ -25,7 +25,7 @@ function App() {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        const res = await axios.put("http://localhost:8081/api/v1/auth/countupdate/");
+        const res = await axios.put("https://changed.onrender.com/api/v1/auth/countupdate/");
         console.log(res.data.message);
         setCount(res.data.message);
       } catch (error) {
@@ -51,7 +51,7 @@ function App() {
   <Navbar/>
   <Routes>
  <Route path="/" element={<RouteTransition><Home/></RouteTransition>}/>
- <Route path="/services" element={<RouteTransition><Services/></RouteTransition>}/>
+ <Route path="/services/:serviceId" element={<RouteTransition><Services/></RouteTransition>}/>
  <Route path="/contact" element={<RouteTransition><Contact/></RouteTransition>}/>
  <Route path="/about" element={<RouteTransition><About/></RouteTransition>}/>
  <Route path="/products" element={<RouteTransition><Products/></RouteTransition>}/>

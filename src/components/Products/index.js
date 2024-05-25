@@ -1,6 +1,6 @@
 import {useContext} from 'react'
 import { AppContext } from '../AppContext'
-import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
+import { FaQuoteLeft, FaQuoteRight, FaUserAlt, FaShieldAlt  } from 'react-icons/fa';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import { RiPlantLine } from 'react-icons/ri';
@@ -34,7 +34,7 @@ const Products=()=>{
 
         <div className="d-flex justify-content-center align-items-center">
        
-
+        <h2>Our Products</h2>
         </div>
 
       </div>
@@ -42,12 +42,12 @@ const Products=()=>{
         <section className={`testimonials ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container" data-aos="fade">
           <div className="section-title">
-            <h2>Our Products</h2>
+            {/* <h2>Our Products</h2> */}
             <p>At VAAJLABS, we are dedicated to developing transformative technologies that empower industries and drive progress. Explore our comprehensive range of solutions tailored to meet the diverse needs of modern businesses</p>
           </div>
           <Slider {...settings}>
   <div style={{ position: "relative", border: "solid 2px red", width: "100%", height: "50%" }}>
-    <center><strong><p>AGRICULTURE POST HARVESTING</p></strong></center>
+    <center><strong><span>AGRICULTURE POST HARVESTING</span></strong></center>
     <img
       src="./img/harvest.jpg"
       className="img-fluid"
@@ -57,7 +57,7 @@ const Products=()=>{
     
   </div>
   <div style={{ position: "relative", border: "solid 2px red", width: "100%", height: "50%" }}>
-  <center><strong><p>CONSUMER SERVICE</p></strong></center>
+  <center><strong><span>CONSUMER SERVICE</span></strong></center>
     <img
       src="./img/consumer.jpg"
       className="img-fluid"
@@ -68,7 +68,7 @@ const Products=()=>{
   </div>
   <div style={{ position: "relative", border: "solid 2px red", width: "100%", height: "50%" }}>
  
-  <center><strong><p>AI  & ML BASED THREAT DETECTION SYSTEM</p></strong></center>   <img
+  <center><strong><span>AI  & ML BASED THREAT DETECTION SYSTEM</span></strong></center>   <img
       src="./img/ai.png"
       className="img-fluid"
       style={{ width: "100%", height: "40vh", objectFit: "cover" }}
@@ -116,7 +116,7 @@ const Products=()=>{
           <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
 
             <div class="icon-box">
-              <div class="icon"><i><RiPlantLine /></i></div>
+              <div class="icon"><i><FaUserAlt /></i></div>
               <h4 class="title"><a>CONSUMER SERVICE</a></h4>
               <p class="description">In today's hyper-connected world, exceptional customer service is non-negotiable. Our customer service solution combines intuitive interfaces, intelligent automation, and real-time analytics to deliver seamless and personalized customer experiences across all touchpoints. Whether through chatbots, self-service portals, or live support channels, we enable businesses to anticipate customer needs, resolve issues efficiently, and foster long-term loyalty and advocacy.</p>
             </div>
@@ -139,7 +139,7 @@ const Products=()=>{
           <div class="col-lg-6 d-flex flex-column justify-content-center p-5">
 
             <div class="icon-box">
-              <div class="icon"><i><RiPlantLine /></i></div>
+              <div class="icon"><i>< FaShieldAlt /></i></div>
               <h4 class="title"><a href="">AI & ML THREAT DETECTION SYSTEM</a></h4>
               <p class="description">Cybersecurity threats continue to evolve in sophistication and scale, posing significant risks to businesses of all sizes. Our AI and ML-based threat detection system provides comprehensive protection against cyber threats by continuously monitoring network traffic, analyzing patterns, and detecting anomalies in real-time. Powered by advanced algorithms and deep learning models, our solution delivers unparalleled accuracy and speed in identifying and mitigating cyber threats, ensuring the integrity and security of critical assets and data.</p>
             </div>

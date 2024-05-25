@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import {Link} from 'react-router-dom'
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -264,24 +265,25 @@ const Footer=({count})=>{
               <div className="col-lg-3  col-md-6 footer-links">
                 <h4>Our Services</h4>
                 <ul>
-                <li> App Fabrication</li>
-              <li> Cyber Defense</li>
-              <li>IT Consulting</li>
-              <li> Product Development</li>
-              <li>Software Testing Services</li>
-              <li>Web Development</li>
-                
+                  <li><Link to="/services/service1"> App Fabrication</Link></li>
+                <li><Link to="/services/service2"> Cyber Defense </Link> </li>
+                <li> <Link to="/services/service3"> IT Consulting</Link></li>
+                <li> <Link to="/services/service4">  Product Development </Link></li>
+                <li> <Link to="/services/service5"> Software Testing Services </Link></li>
+              
+                  
                 </ul>
               </div>
               <div className="col-lg-3 col-md-6 footer-links">
                 <h4>Address</h4>
                <ul>
-                <li>Hebbal,Banglore</li>
+                <li>Hebbal, Banglore</li>
+                <li>INDIA-560089</li>
                 <li>services@vaajlabs.com</li>
                </ul>
                <div className="social-links mt-3">
               <a href="https://www.instagram.com/vaajlabs?igsh=MzRlODBiNWFlZA==" target="_blank" className="twitter">    <FaInstagram size={22} color="white" /> </a>
-              <a href="https://www.linkedin.com/in/vaaj-labs-a842a0230/"   target="_blank" className="facebook"><FaLinkedin size={22} color="white"/></a>
+              <a href="https://www.linkedin.com/in/director-vaajlabs-a842a0230/"   target="_blank" className="facebook"><FaLinkedin size={22} color="white"/></a>
             </div>
               </div>
     
@@ -290,12 +292,13 @@ const Footer=({count})=>{
         </div>
         <div className="container">
         <div class="copyright">
-        &copy; Copyright <strong><span>VAAJLABS</span></strong>. All Rights Reserved
+    <span>&copy; Copyright <strong><span>VAAJLABS</span></strong>. All Rights Reserved</span>
+        <span className="count" style={{color:" #a2cce3"}}>Visitors: {count}</span>   
       </div>
-      <div class="credits">
-     <p style={{color:" #a2cce3"}}>Visitors Count: {count}</p>   
+      {/* <div class="credits">
+ 
      
-      </div>
+      </div> */}
           
         </div>
       </footer>

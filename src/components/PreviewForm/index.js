@@ -61,12 +61,12 @@ const PreviewForm = ({ job, data, onPrev, onNext }) => {
     formData.append('resume', resume);
 
     try {
-      const res=await axios.post('http://localhost:8081/api/v1/auth/add',{Email,job})
+      const res=await axios.post('https://changed.onrender.com/api/v1/auth/add',{Email,job})
       if(!res.data.success){
         toast.error("data not added")
         return;
       }
-      const response = await axios.post('http://localhost:8081/api/v1/auth/apply', formData, {
+      const response = await axios.post('https://changed.onrender.com/api/v1/auth/apply', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

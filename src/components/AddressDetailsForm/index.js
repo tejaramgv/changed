@@ -121,12 +121,13 @@ const AddressDetailsForm = ({data, onNext, onPrev }) => {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <FormControl fullWidth>
-              <InputLabel id="countryLabel">Country</InputLabel>
+              {/* <InputLabel id="countryLabel">Country</InputLabel> */}
+              <label>Country *</label>
               <Select
-                labelId="countryLabel"
-                id="country"
+                // labelId="countryLabel"
+                // id="country"
                 required
-                name="country"
+                // name="country"
                 value={Address.selectedCountry}
                 onChange={handleCountryChange}
               >
