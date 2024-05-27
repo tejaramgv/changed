@@ -107,7 +107,7 @@ export const contactController=async(req, res) => {
     mails="services@vaajlabs.com"
     }
 
-    feed=await new Feedback({
+   const feed=await new Feedback({
       name,
       email,
       phoneno,

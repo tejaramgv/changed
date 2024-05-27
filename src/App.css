@@ -1227,7 +1227,7 @@ section {
   /* border-color: transparent transparent transparent #f0f0f0;
   transform-origin: 0 0;
   transform: rotate(45deg);  */
-/* } */ */
+/* } */ 
 .breadcrumbs h2 {
   font-size: 28px;
   color:white;
@@ -1440,13 +1440,6 @@ section {
   border-radius: 6px;
   transition: 0.5s;
 }
-@media(max-width:768px){
-  .why-us .icon-box .icon {
-   /* display:none; */
-  }
- 
-}
-
 .why-us .icon-box .icon i {
   color: #68A4C4;
   font-size: 32px;
@@ -1940,13 +1933,7 @@ section {
   border-radius:10px;
   transition: all 0.5s ease;
 }
-.service-details .card:hover .card-body {
-  /* border-left: solid 8px #68A4C4;
-  border-right:solid 8px #68A4C4;
-  border-top:none;
-  border-bottom:none; */
-  /* border-radius:10px; */
-}
+
 
 .service-details .card:hover .card-body .card-title a {
   color: #68A4C4;

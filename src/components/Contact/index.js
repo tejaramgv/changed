@@ -106,7 +106,7 @@ document.title = `VAAJLABS${location.pathname}`;
         setPhone("")
         setFeedback("")
         try {
-         const res = await axios.post(`https://changed.onrender.com/api/v1/auth/contact`, { name, email,phoneno,feedback,category });
+         const res = await axios.post(`http://localhost:8081/api/v1/auth/contact`, { name, email,phoneno,feedback,category });
          console.log(res);
    
          if (res.data.success) {
