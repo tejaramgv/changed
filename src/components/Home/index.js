@@ -1,6 +1,7 @@
 
 
 import React, { useState, useEffect,useContext } from 'react';
+import {useLocation} from 'react-router-dom'
 import { motion } from 'framer-motion';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -33,6 +34,10 @@ import '../../App.css'
 const Home=()=>
     {
         const [state, setState] = useContext(AppContext);
+        const location = useLocation();
+        useEffect(() => {
+      document.title = `VAAJLABS${location.pathname}`;
+    }, []);
       
     const settings = {
         dots: true,

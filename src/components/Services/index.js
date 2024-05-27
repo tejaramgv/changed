@@ -1,6 +1,6 @@
 import {useState,useContext} from 'react'
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useLocation,Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { AppContext } from '../AppContext';
 import '../../App.css'
@@ -8,6 +8,10 @@ import '../../App.css'
 const Services=(props)=>{
     const [state, setState] = useContext(AppContext);
     const { serviceId } = useParams();
+    const location = useLocation();
+      useEffect(() => {
+    document.title = `VAAJLABS${location.pathname}`;
+  }, []);
 // alert(serviceId)
     useEffect(() => {
       if (serviceId) {
@@ -21,16 +25,18 @@ const Services=(props)=>{
   
     return(
     <>
-      <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
+      <div className="breadcrumbs-wrapper">
+         <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
       <div classame="container">
 
-        <div className="d-flex justify-content-center align-items-center">
-          <h2>Our Services</h2>
-
+        <div className="header-logo">
+       
+        <h2>Our Services</h2>
+        <div className="logo_name"><div className="mark"><Link to="/"><img className="img" src={serviceId?"/img/tech.jpg":"./img/tech.jpg "} alt="" /></Link><span>&#174;</span></div></div>
         </div>
 
       </div>
-    </section>
+    </section></div>
         <section className={`service-details ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container">
   

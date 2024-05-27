@@ -1,4 +1,5 @@
-import {useContext} from 'react'
+import {useContext,useEffect} from 'react'
+import {useLocation,Link} from 'react-router-dom'
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { FaShieldAlt, FaTasks, FaRoute,FaUsers,FaTwitter, FaFacebook, FaInstagram, FaLinkedin } from 'react-icons/fa';
@@ -8,21 +9,26 @@ import '../../App.css'
 
 const About=()=>{
     AOS.init();
+    const location = useLocation();
+    useEffect(() => {
+  document.title = `VAAJLABS${location.pathname}`;
+}, []);
     const [state, setState] = useContext(AppContext);
 
 
     return(
-<>
-<section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
-        <div className="container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="200">
-  
-          <div className="d-flex justify-content-center align-items-center">
-            <h2>About Us</h2>
-           
-          </div>
-  
+<> <div className="breadcrumbs-wrapper">
+         <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
+      <div classame="container">
+
+        <div className="header-logo">
+       
+        <h2>About Us</h2>
+        <div className="logo_name"><div className="mark"><Link to="/"><img className="img" src="./img/tech.jpg" alt="" /></Link><span>&#174;</span></div></div>
         </div>
-      </section>
+
+      </div>
+    </section></div>
 <section className={`why-us section-bg ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
       <div class="container">
 

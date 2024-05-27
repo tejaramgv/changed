@@ -1,7 +1,8 @@
 
 import {useState,useEffect,createContext} from 'react'
+
 import axios from 'axios'
-import {BrowserRouter,Route,Routes} from 'react-router-dom'
+import {BrowserRouter,Route,Routes,useLocation} from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Footer from './components/Footer';
@@ -20,8 +21,16 @@ import './loader.css'
 
 function App() {
   const [count,setCount]=useState(0);
+  const [timeout,setTime]=useState(0)
+  setTimeout(() => {
+    setTime(1);
+  }, 2000); // 3000 milliseconds = 3 seconds
 
+  // const location = useLocation();
 
+  // useEffect(() => {
+  //   document.title = `VAAJLABS | ${location}`;
+  // }, [location.pathname]);
   useEffect(() => {
     const fetchCount = async () => {
       try {
@@ -40,17 +49,19 @@ function App() {
   
 
   return (
+    <BrowserRouter>
     <div>
-  {count===0?(  <div class="center">
+  {timeout===0?(  <div class="center">
          <div class="ring"></div>
         <img src="../img/logo.png" height="200vh"/>
-      </div>):(  <BrowserRouter>
+      </div>):(
     <div className="main">
       <AppProvider>
       <ScrollToTopOnRouteChange />
   <Navbar/>
   <Routes>
  <Route path="/" element={<RouteTransition><Home/></RouteTransition>}/>
+ <Route path="/services" element={<RouteTransition><Services/></RouteTransition>}/>
  <Route path="/services/:serviceId" element={<RouteTransition><Services/></RouteTransition>}/>
  <Route path="/contact" element={<RouteTransition><Contact/></RouteTransition>}/>
  <Route path="/about" element={<RouteTransition><About/></RouteTransition>}/>
@@ -65,8 +76,9 @@ function App() {
      <Footer count={count}/>
      </AppProvider>
     </div>
-    </BrowserRouter>)}
+  )}
     </div>
+      </BrowserRouter>
   );
   
 }

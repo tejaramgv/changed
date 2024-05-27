@@ -1,5 +1,7 @@
-import {useContext} from 'react'
+import {useContext,useEffect} from 'react'
+import {Link} from 'react-router-dom'
 import { AppContext } from '../AppContext'
+import {useLocation} from 'react-router-dom'
 import { FaQuoteLeft, FaQuoteRight, FaUserAlt, FaShieldAlt  } from 'react-icons/fa';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -12,6 +14,10 @@ import '../../App.css'
 
 
 const Products=()=>{
+  const location = useLocation();
+  useEffect(() => {
+document.title = `VAAJLABS${location.pathname}`;
+}, []);
     AOS.init();
     const [state, setState] = useContext(AppContext);
     const settings = {
@@ -29,21 +35,23 @@ const Products=()=>{
 
     return(
         <>
+        <div className="breadcrumbs-wrapper">
          <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
       <div classame="container">
 
-        <div className="d-flex justify-content-center align-items-center">
+        <div className="header-logo">
        
         <h2>Our Products</h2>
+        <div className="logo_name"><div className="mark"><Link to="/"><img className="img" src="./img/tech.jpg" alt="" /></Link><span>&#174;</span></div></div>
         </div>
 
       </div>
-    </section>
+    </section></div>
         <section className={`testimonials ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container" data-aos="fade">
           <div className="section-title">
             {/* <h2>Our Products</h2> */}
-            <p>At VAAJLABS, we are dedicated to developing transformative technologies that empower industries and drive progress. Explore our comprehensive range of solutions tailored to meet the diverse needs of modern businesses</p>
+            <p>VAAJLABS pioneers transformative artificial intelligence and machine learning solutions, empowering businesses of all sizes to achieve greater efficiency and innovation. Explore our comprehensive suite of solutions, meticulously crafted to address the unique needs of your industry.</p>
           </div>
           <Slider {...settings}>
   <div style={{ position: "relative", border: "solid 2px red", width: "100%", height: "50%" }}>

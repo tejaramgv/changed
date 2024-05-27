@@ -92,7 +92,7 @@ res.status(201).send({
 
 
 
-export const contactController=(req, res) => {
+export const contactController=async(req, res) => {
   const {name,email,phoneno,feedback,category } = req.body;
 
   if (!email) {
@@ -107,12 +107,18 @@ export const contactController=(req, res) => {
     mails="services@vaajlabs.com"
     }
 
-  
+    feed=await new Feedback({
+      name,
+      email,
+      phoneno,
+      category,
+      feedback
+  }).save();
 
   const mailOptions = {
     from: email,
     to: mails,
-    subject:'Feedback!',
+    subject:'Enquiry',
     text:`From:${email}\nName:${name}\nphone No: ${phoneno}\nEnquiry Type: ${category}\nMessage: ${feedback}\n\nThank You for contacing us.we will reach you out shortly`
   };
 

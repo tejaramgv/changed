@@ -1,4 +1,5 @@
-import {useState,useContext} from 'react'
+import {useState,useContext,useEffect} from 'react'
+import {useLocation,Link} from 'react-router-dom'
 import { FaMapMarkerAlt,FaEnvelope } from 'react-icons/fa';
 import { Container, Typography, Grid, TextField, FormControl, InputLabel, Select, MenuItem, Button } from '@mui/material';
 import ReCAPTCHA from 'react-google-recaptcha';
@@ -17,6 +18,10 @@ import '../../App.css'
 import { AppContext } from '../AppContext';
 
 const Contact=()=>{
+  const location = useLocation();
+  useEffect(() => {
+document.title = `VAAJLABS${location.pathname}`;
+}, []);
     AOS.init();
     const [state, setState] = useContext(AppContext);
     const [name,setName]=useState("")
@@ -101,7 +106,7 @@ const Contact=()=>{
         setPhone("")
         setFeedback("")
         try {
-         const res = await axios.post(`http://localhost:8081/api/v1/auth/contact`, { name, email,phoneno,feedback,category });
+         const res = await axios.post(`https://changed.onrender.com/api/v1/auth/contact`, { name, email,phoneno,feedback,category });
          console.log(res);
    
          if (res.data.success) {
@@ -127,16 +132,18 @@ const Contact=()=>{
     return(
         <>
         <Toaster/>
-       <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
-        <div className="container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="200">
-  
-          <div className="d-flex justify-content-center align-items-center">
-            <h2>Contact</h2>
-           
-          </div>
-  
+        <div className="breadcrumbs-wrapper">
+         <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
+      <div classame="container">
+
+        <div className="header-logo">
+       
+        <h2>Contact</h2>
+        <div className="logo_name"><div className="mark"><Link to="/"><img className="img" src="./img/tech.jpg" alt="" /></Link><span>&#174;</span></div></div>
         </div>
-      </section>
+
+      </div>
+    </section></div>
       <section className={`contact ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
         <div className="container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="200">
   
@@ -150,6 +157,7 @@ const Contact=()=>{
                     <i><FaMapMarkerAlt /></i>
                     <h3>Our Address</h3>
                     <p>Hebbal, Banglore</p>
+                    <p>INDIA-560089</p>
                   </div>
                 </div>
                 <div className="col-md-12">

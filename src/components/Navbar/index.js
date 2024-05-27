@@ -28,8 +28,9 @@ const Navbar=()=>{
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
         <div className="logo-details">
         
-          <div className="logo_name">VAAJLABS
-  </div>
+          {/* <div className="logo_name">VAAJLABS
+  </div> */}
+    {isOpen &&(<div className="logo_name"><div className="mark"><Link to="/"><img className="img" src="./img/tech.jpg" alt="" /></Link><span>&#174;</span></div></div>)}
       {isOpen?(<i className="bx bx-menu" id="btn" onClick={toggleSidebar}> <FaTimes style={{marginLeft:"7px"}}/></i>):(<i className="bx bx-menu" id="btn" onClick={toggleSidebar}> <FaBars style={{marginLeft:"7px"}}/></i>)}   
                </div>
         <ul className="nav-list">
@@ -43,8 +44,8 @@ const Navbar=()=>{
           </li>
          
           <li>
-            <Link to="/services/service1">
-              <i><FaTools color={location.pathname === '/services/service1' ? '#45beff' : 'white'}/></i>
+            <Link to="/services">
+              <i><FaTools color={location.pathname === '/services' ? '#45beff' : 'white'}/></i>
               <span className="links_name">Services</span>
             </Link>
             <span className="tooltip">Services</span>
@@ -80,7 +81,7 @@ const Navbar=()=>{
         <FaHome  color={location.pathname === '/' ? '#45beff' : 'white'}/>
         <span>Home</span>
       </NavLink>
-      <NavLink to="/services/service1" activeClassName="active-link" className="link">
+      <NavLink to="/services" activeClassName="active-link" className="link">
       <FaTools color={location.pathname === '/services' ? '#45beff' : 'white'}/>
         <span>Services</span>
       </NavLink>
@@ -113,7 +114,7 @@ const Navbar=()=>{
    <Link to="https://www.instagram.com/vaajlabs?igsh=MzRlODBiNWFlZA==" target="_blank"><FaInstagram size={40} color={"white"}/></Link>
   </div>
   <div  className="icon-link">
-<Link to="/contact"><FaPhoneAlt color={location.pathname === '/contact' ? 'green' : 'white'} size={30}/></Link>   
+<NavLink to="/contact"><FaPhoneAlt color={location.pathname === '/contact' ? 'green' : 'white'} size={30}/></NavLink>   
   </div>
 </div>
       </>

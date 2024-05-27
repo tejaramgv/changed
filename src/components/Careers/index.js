@@ -1,6 +1,6 @@
 
-import React, { useState, useContext } from 'react';
-import {Link} from 'react-router-dom' 
+import React, { useState,useEffect, useContext } from 'react';
+import {Link,useLocation} from 'react-router-dom' 
 import AOS from 'aos';
 import { FaBriefcase } from 'react-icons/fa';
 import 'aos/dist/aos.css';
@@ -10,6 +10,10 @@ import '../../App.css';
 import { AppContext } from '../AppContext';
 
 const Careers = () => {
+    const location = useLocation();
+    useEffect(() => {
+  document.title = `VAAJLABS${location.pathname}`;
+}, []);
     const [careers,setCareers]=useState([{
         img:"./img/mern.png",
         type:"Internship",
@@ -90,13 +94,18 @@ role:"As a Full-Stack Developer, your primary role will be to develop and mainta
 
     return (
         <>
-            <section className={`breadcrumbs ${!state ? "home-sectionothers" : "home-sectionothers-toggle"}`}>
-                <div className="container" data-aos="fade-up" data-aos-easing="ease-in-out" data-aos-duration="200">
-                    <div className="d-flex justify-content-center align-items-center">
-                        <h2>Careers</h2>
-                    </div>
-                </div>
-            </section>
+           <div className="breadcrumbs-wrapper">
+         <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
+      <div classame="container">
+
+        <div className="header-logo">
+       
+        <h2>Careers</h2>
+        <div className="logo_name"><div className="mark"><Link to="/"><img className="img" src="./img/tech.jpg" alt="" /></Link><span>&#174;</span></div></div>
+        </div>
+
+      </div>
+    </section></div>
             <section id="courses" className={`courses section ${!state ? "home-sectionothers" : "home-sectionothers-toggle"}`}>
                 <div className="container">
                     <div className="row">

@@ -1,11 +1,14 @@
 
 
 .apply-form{
-  margin-top:10px;
-  margin-bottom:20px;
+margin-top:1px;
+  /* z-index:-1; */
+
+  margin-bottom:0px;
   min-height:70vh;
  
 }
+
 .boxings{
     display:flex;
     justify-content:space-evenly;

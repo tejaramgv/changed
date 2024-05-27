@@ -3,7 +3,7 @@
 
 
 import React, { useState,useEffect,useContext } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useLocation,Link } from 'react-router-dom';
 import PersonalDetailsForm from '../PersonalDetailsForm';
 import AddressDetailsForm from '../AddressDetailsForm';
 import EducationForm from '../EducationForm';
@@ -17,6 +17,10 @@ import '../../App.css'
 const steps = ['Personal Details','OTP Verification', 'Address Details', 'Education', 'Preview'];
 
 const Apply = (props) => {
+  const location = useLocation();
+  useEffect(() => {
+document.title = `VAAJLABS${location.pathname}`;
+}, []);
   const [state, setState] = useContext(AppContext);
   const { jobname } = useParams();
   const [step, setStep] = useState(0);
@@ -43,16 +47,18 @@ const Apply = (props) => {
 
   return (
     <>
-     <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
-        <div className="container">
-  
-          <div className="d-flex justify-content-center align-items-center">
-            <h4 style={{color:"white"}}>Application Form</h4>
-           
-          </div>
-  
+   <div className="breadcrumbs-wrapper">
+         <section className={`breadcrumbs ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
+      <div classame="container">
+
+        <div className="header-logo">
+       
+        <h4 style={{color:"white"}}>Application Form</h4>
+        <div className="logo_name"><div className="mark"><Link to="/"><img className="img" src="/img/tech.jpg" alt="" /></Link><span>&#174;</span></div></div>
         </div>
-      </section>
+
+      </div>
+    </section></div>
     <div className={`apply-form ${!state?"home-sectionothers":"home-sectionothers-toggle"}`}>
       <Stepper activeStep={step} alternativeLabel>
         {steps.map((label, index) => (

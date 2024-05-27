@@ -7,7 +7,7 @@ import { faBars,faArrowUp } from '@fortawesome/free-solid-svg-icons';
 import {FaHome,FaLaptopCode,FaCode,FaBars,FaTools,FaLightbulb,FaBug,FaReact } from 'react-icons/fa';
 import {FaChartPie,FaPhoneAlt,FaInfoCircle,FaBell, FaChartBar, FaHeart, FaWallet, FaSignOutAlt, FaMoon, FaSun, FaSearch } from 'react-icons/fa';
 import CountUp from 'react-countup';
- // Import icons from react-icons
+import { ClipLoader } from 'react-spinners';
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa';
 import { FaMapMarkerAlt } from 'react-icons/fa';
 import { AiOutlineMail } from 'react-icons/ai';
@@ -293,7 +293,7 @@ const Footer=({count})=>{
         <div className="container">
         <div class="copyright">
     <span>&copy; Copyright <strong><span>VAAJLABS</span></strong>. All Rights Reserved</span>
-        <span className="count" style={{color:" #a2cce3"}}>Visitors: {count}</span>   
+        <span className="count" style={{color:" #a2cce3"}}>Visitors: {count===0?(<ClipLoader size={10} color={"white"}/>):(count)}</span>   
       </div>
       {/* <div class="credits">
  

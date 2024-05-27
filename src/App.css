@@ -43,12 +43,12 @@
 }
 
 .sidebar .logo-details .logo_name {
-  color: #fff;
+  /* color: #fff;
   font-size: 20px;
   border: solid 2px;
   padding:8px;
-  font-weight: 600;
-  opacity: 0;
+  font-weight: 600;*/
+  opacity: 0; 
   transition: all 0.5s ease;
 }
 
@@ -499,7 +499,7 @@ padding: 10px 0;
   padding:10px;
   transform: translateY(-50%);
   display: flex;
-  background-color:#174055;
+  background-color:#124694;
   flex-direction: column;
   align-items: center;
   z-index:2;
@@ -514,6 +514,36 @@ padding: 10px 0;
 .icon-link i {
   font-size: 24px;
 }
+.logo_name{
+  display:flex;
+  align-items:center;
+  justify-content: flex-start;
+  transition: all 0.5s ease !important;
+
+}
+.mark{
+  display:flex;
+  background-color: #0b212d;
+  transition: all 0.5s ease;
+}
+.img {
+  width: 150px;
+  /* margin-left: 10px; */
+  transition: all 0.5s ease;
+  height: 50px;
+}
+
+
+.mark span{
+  align-self: flex-start !important;
+  margin-top:-8px;
+  color:white;
+  transition: all 0.5s ease;
+  font-size:28px;
+  margin-left:-11.5px !important;
+
+}
+
 
 
 .App {
@@ -1156,13 +1186,36 @@ section {
 /*--------------------------------------------------------------
 # Breadcrumbs
 --------------------------------------------------------------*/
+
 .breadcrumbs {
   padding: 15px 0;
   background-color:#0b212d;
   min-height: 40px;
-  position: relative;
+  position:relative;
 }
-.breadcrumbs::before {
+.header-logo{
+  padding:0 20px 0 10%;
+  display:flex;
+  justify-content:space-between!important;
+  align-items:center;
+}
+.header-logo h2{
+  color:white;
+}
+@media(max-width:768px){
+  .header-logo{
+    display:flex !important;
+    padding-left:10px;
+    flex-direction:row !important;
+  }
+  /* .header-logo h2{
+    font-size:3px !important;
+  } */
+ 
+  .logo-name{
+    width:0;
+  }}
+/* .breadcrumbs::before {
   content: '';
   position: absolute;
   top: 0;
@@ -1171,10 +1224,10 @@ section {
   height: 0;
   border-style: solid;
   border-width: 0 0 105px 105px; /* Adjust thickness and angle */
-  border-color: transparent transparent transparent #f0f0f0; /* Match background color */
+  /* border-color: transparent transparent transparent #f0f0f0;
   transform-origin: 0 0;
-  transform: rotate(45deg); /* Rotate the border */
-}
+  transform: rotate(45deg);  */
+/* } */ */
 .breadcrumbs h2 {
   font-size: 28px;
   color:white;
@@ -1213,6 +1266,7 @@ section {
   .breadcrumbs .d-flex {
     display: block !important;
   }
+
 
   .breadcrumbs ol {
     display: block;
@@ -1361,10 +1415,14 @@ section {
 /*--------------------------------------------------------------
 # Why Us
 --------------------------------------------------------------*/
+
 .why-us .container {
   box-shadow: 0 5px 25px 0 rgba(214, 215, 216, 0.6);
   background: #fff;
+
+  /* z-index:-2; */
 }
+
 
 .why-us .icon-box+.icon-box {
   margin-top: 50px;
@@ -1386,6 +1444,7 @@ section {
   .why-us .icon-box .icon {
    /* display:none; */
   }
+ 
 }
 
 .why-us .icon-box .icon i {
@@ -1655,10 +1714,12 @@ section {
 --------------------------------------------------------------*/
 .testimonials {
   padding: 60px 0;
+
 }
 
+
 .testimonials .section-header {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .testimonials .testimonials-carousel {
@@ -1766,30 +1827,94 @@ section {
 }
 
 }
+.card-body{
+  position: relative;
+  z-index: 1; /* Ensure content appears above the background */
+  padding: 20px;
+  /* margin-top: -60px; */
+  color: #000; /* Normal text color */
+}
 
-.service-details .card-body {
+/* .service-details .card-body {
   z-index: 1;
-  background: #fff;
+
+  background:url('/public/img/logo.png');
+  background-color:white;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity:0.5;
+  object-fit: cover;
   border-top: 4px solid #fff;
   padding: 30px;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
   margin-top: -60px;
   transition: 0.3s;
+} */
+@media(max-width:768px){
+  .card-body{
+    background-size:30%;
+  }
+}
+.card-body:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/public/img/logo.png');
+  /* background-size: cover; */
+  background-size: 25%;
+  background-color: white;
+  background-position: center;
+  /* border-top: 4px solid #fff; */
+  padding: 30px;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+  background-repeat: no-repeat;
+  /* Set opacity for the background image */
+  opacity: 0.4; /* Adjust as needed */
+  z-index: -1; /* Place the pseudo-element behind the content */
 }
 
+@media(max-width:768px){
+  .card-body:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/public/img/logo.png');
+    /* background-size: cover; */
+    background-size: 50%;
+    background-color: white;
+    background-position: center;
+    /* border-top: 4px solid #fff; */
+    padding: 30px;
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    background-repeat: no-repeat;
+    /* Set opacity for the background image */
+    opacity: 0.4; /* Adjust as needed */
+    z-index: -1; /* Place the pseudo-element behind the content */
+  }
+}
 .service-details .card-title {
   font-weight: 700;
+  color:rgb(4, 96, 99);
   text-align: center;
   margin-bottom: 20px;
 }
 
 .service-details .card-title a {
-  color: #1e4356;
+  color: #253c47;
   transition: 0.3s;
 }
 
 .service-details .card-text {
-  color: #5e5e5e;
+  color: #272626;
 }
 
 .service-details .read-more a {
@@ -3138,9 +3263,9 @@ section {
   margin-left: 8px;
 }
 
-
 .courses .course-item {
   border-radius: 5px;
+
   border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 

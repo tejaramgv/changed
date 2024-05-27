@@ -14,6 +14,10 @@ const userSchema=new mongoose.Schema({
         type:Number,
         required:true,
     },
+    category:{
+        type:String,
+        required:true,
+    },
    feedback :{
         type:String,
         required:true
